@@ -162,6 +162,7 @@
                 </dependencies>
             </plugin>
 
+        <!-- should there be surefire plugin or not -->
         </plugins>
     </build>
 
