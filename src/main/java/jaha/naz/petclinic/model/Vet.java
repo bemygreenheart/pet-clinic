@@ -1,10 +1,6 @@
 package jaha.naz.petclinic.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.Fetch;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -22,4 +18,9 @@ public class Vet extends Person {
     @JoinTable(joinColumns = @JoinColumn(name = "vet_id"), inverseJoinColumns = @JoinColumn(name = "specialty_id"))
     private Set<Specialty> specialities= new HashSet<>();
 
+    @Builder
+    public Vet(Long id,String firstName, String lastName,Set<Specialty> specialities){
+        super(id,firstName,lastName);
+        this.specialities= specialities;
+    }
 }
